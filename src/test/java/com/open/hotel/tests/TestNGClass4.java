@@ -2,12 +2,9 @@ package com.open.hotel.tests;
 
 import com.open.hotel.loadConfig.Config;
 import com.open.hotel.pages.Login;
-import com.open.hotel.pages.Search;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
-import java.util.HashMap;
-
-public class TestNGClass1 extends BaseClass {
+public class TestNGClass4 extends BaseClass {
 
     @Test
     public void login() throws Exception {
@@ -18,7 +15,6 @@ public class TestNGClass1 extends BaseClass {
         String Password = Config.properties.getProperty("QAPassword");
         login.login(Username, Password);
         login.LogOut();
-
     }
 
     @Test
@@ -30,6 +26,5 @@ public class TestNGClass1 extends BaseClass {
         String Password = Config.properties.getProperty("QAPassword");
         login.login(Username, Password);
         login.LogOut();
-
     }
 }

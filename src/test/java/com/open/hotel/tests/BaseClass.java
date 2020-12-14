@@ -38,6 +38,9 @@ public class BaseClass {
     @AfterSuite
     public void afterSuite() {
         System.out.println("After Suite");
+        String name = "pooja";
+        name = "Anu";
+        System.out.println(name);
     }
 
     @BeforeClass
@@ -50,30 +53,28 @@ public class BaseClass {
         System.out.println("After Class");
     }
 
-    @Parameters ({"Browser", "Environment"})
-
     @BeforeTest
-    public void beforeTest(String Browser, String Environment) {
+    public void beforeTest() {
         System.out.println("Before Test");
-        this.Browser = Browser;
-        this.Environment = Environment;
     }
 
     @AfterTest
     public void afterTest() {
         System.out.println("After Test");
+        getDriver().close();
     }
 
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("Before Method");
         WebDriver driver;
+        String Browser = Config.properties.getProperty("Browser");
         String ExecutionMode = Config.properties.getProperty("ExecutionMode");
         String RemoteType = Config.properties.getProperty("RemoteType");
         String RemoteURL = Config.properties.getProperty("RemoteURL");
         String driverPath = System.getProperty("user.dir");
         if(ExecutionMode.contains("Local")) {
-            if (this.Browser.toUpperCase().contains("CH")) {
+            if (Browser.toUpperCase().contains("CH")) {
                 System.setProperty("webdriver.chrome.driver", driverPath + "\\src\\test\\resources\\drivers\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
                 Map<String, Object> prefs = new HashMap<String, Object>();
@@ -91,7 +92,7 @@ public class BaseClass {
         } else if (ExecutionMode.contains("Grid")) {
             // RemoteWebDriver driver = null;
             DesiredCapabilities cap = null;
-            if (this.Browser.toUpperCase().contains("CH")) {
+            if (Browser.toUpperCase().contains("CH")) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("no-sandbox");
                 options.addArguments("start-maximized");
@@ -119,5 +120,6 @@ public class BaseClass {
     @AfterMethod
     public void afterMethod() {
         System.out.println("After Method");
+
     }
 }

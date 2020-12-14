@@ -3,11 +3,11 @@ package com.open.hotel.tests;
 import com.open.hotel.loadConfig.Config;
 import com.open.hotel.pages.Login;
 import com.open.hotel.pages.Search;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
 
-public class TestNGClass2 extends BaseClass {
+public class TestNGClass3 extends BaseClass {
 
     @Test
     public void search() throws Exception {
@@ -31,7 +31,6 @@ public class TestNGClass2 extends BaseClass {
         search.enterRoomSearchInfo(hmap);
         login.LogOut();
     }
-
     @Test
     public void search1() throws Exception {
         System.out.println("Class2 test2");

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="My suite" parallel="tests" thread-count="2">
+    <test name="Regression">
+        <classes>
+            <class name="com.open.hotel.tests.TestNGClass1"/>
+        </classes>
+    </test>
+    <test name="Regression1">
+        <classes>
+            <class name="com.open.hotel.tests.TestNGClass2"/>
+        </classes>
+    </test>
+    <test name="Regression2">
+        <classes>
+            <class name="com.open.hotel.tests.TestNGClass3"/>
+        </classes>
+    </test>
+    <test name="Regression3">
+        <classes>
+            <class name="com.open.hotel.tests.TestNGClass4"/>
+        </classes>
+    </test>
+</suite>
